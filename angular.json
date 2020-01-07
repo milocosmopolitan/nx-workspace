@@ -1,36 +1,39 @@
 {
   "version": 1,
   "projects": {
-    "idp": {
+    "idp-client": {
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
       },
-      "root": "apps/idp",
-      "sourceRoot": "apps/idp/src",
+      "root": "apps/idp-client",
+      "sourceRoot": "apps/idp-client/src",
       "prefix": "workspace",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/idp",
-            "index": "apps/idp/src/index.html",
-            "main": "apps/idp/src/main.ts",
-            "polyfills": "apps/idp/src/polyfills.ts",
-            "tsConfig": "apps/idp/tsconfig.app.json",
+            "outputPath": "dist/apps/idp-client",
+            "index": "apps/idp-client/src/index.html",
+            "main": "apps/idp-client/src/main.ts",
+            "polyfills": "apps/idp-client/src/polyfills.ts",
+            "tsConfig": "apps/idp-client/tsconfig.app.json",
             "aot": false,
-            "assets": ["apps/idp/src/favicon.ico", "apps/idp/src/assets"],
-            "styles": ["apps/idp/src/styles.scss"],
+            "assets": [
+              "apps/idp-client/src/favicon.ico",
+              "apps/idp-client/src/assets"
+            ],
+            "styles": ["apps/idp-client/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/idp/src/environments/environment.ts",
-                  "with": "apps/idp/src/environments/environment.prod.ts"
+                  "replace": "apps/idp-client/src/environments/environment.ts",
+                  "with": "apps/idp-client/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -60,37 +63,37 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "idp:build",
-            "proxyConfig": "apps/idp/proxy.conf.json"
+            "browserTarget": "idp-client:build",
+            "proxyConfig": "apps/idp-client/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "idp:build:production"
+              "browserTarget": "idp-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "idp:build"
+            "browserTarget": "idp-client:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/idp/tsconfig.app.json",
-              "apps/idp/tsconfig.spec.json"
+              "apps/idp-client/tsconfig.app.json",
+              "apps/idp-client/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/idp/**"]
+            "exclude": ["**/node_modules/**", "!apps/idp-client/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/idp/jest.config.js",
-            "tsConfig": "apps/idp/tsconfig.spec.json",
-            "setupFile": "apps/idp/src/test-setup.ts"
+            "jestConfig": "apps/idp-client/jest.config.js",
+            "tsConfig": "apps/idp-client/tsconfig.spec.json",
+            "setupFile": "apps/idp-client/src/test-setup.ts"
           }
         }
       }
@@ -122,9 +125,9 @@
         }
       }
     },
-    "api": {
-      "root": "apps/api",
-      "sourceRoot": "apps/api/src",
+    "idp-api": {
+      "root": "apps/idp-api",
+      "sourceRoot": "apps/idp-api/src",
       "projectType": "application",
       "prefix": "api",
       "schematics": {},
@@ -132,10 +135,10 @@
         "build": {
           "builder": "@nrwl/node:build",
           "options": {
-            "outputPath": "dist/apps/api",
-            "main": "apps/api/src/main.ts",
-            "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "outputPath": "dist/apps/idp-api",
+            "main": "apps/idp-api/src/main.ts",
+            "tsConfig": "apps/idp-api/tsconfig.app.json",
+            "assets": ["apps/idp-api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -144,8 +147,8 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/api/src/environments/environment.ts",
-                  "with": "apps/api/src/environments/environment.prod.ts"
+                  "replace": "apps/idp-api/src/environments/environment.ts",
+                  "with": "apps/idp-api/src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -154,24 +157,24 @@
         "serve": {
           "builder": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "api:build"
+            "buildTarget": "idp-api:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/api/tsconfig.app.json",
-              "apps/api/tsconfig.spec.json"
+              "apps/idp-api/tsconfig.app.json",
+              "apps/idp-api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/api/**"]
+            "exclude": ["**/node_modules/**", "!apps/idp-api/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/api/jest.config.js",
-            "tsConfig": "apps/api/tsconfig.spec.json"
+            "jestConfig": "apps/idp-api/jest.config.js",
+            "tsConfig": "apps/idp-api/tsconfig.spec.json"
           }
         }
       }
@@ -200,6 +203,185 @@
           }
         }
       }
+    },
+    "todo": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/todo",
+      "sourceRoot": "apps/todo/src",
+      "prefix": "workspace",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/todo",
+            "index": "apps/todo/src/index.html",
+            "main": "apps/todo/src/main.ts",
+            "polyfills": "apps/todo/src/polyfills.ts",
+            "tsConfig": "apps/todo/tsconfig.app.json",
+            "aot": false,
+            "assets": ["apps/todo/src/favicon.ico", "apps/todo/src/assets"],
+            "styles": ["apps/todo/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/todo/src/environments/environment.ts",
+                  "with": "apps/todo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "todo:build",
+            "proxyConfig": "apps/todo/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "todo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "todo:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/todo/tsconfig.app.json",
+              "apps/todo/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/todo/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/todo/src/test.ts",
+            "tsConfig": "apps/todo/tsconfig.spec.json",
+            "karmaConfig": "apps/todo/karma.conf.js",
+            "polyfills": "apps/todo/src/polyfills.ts",
+            "styles": [],
+            "scripts": [],
+            "assets": []
+          }
+        }
+      }
+    },
+    "todo-e2e": {
+      "root": "apps/todo-e2e",
+      "sourceRoot": "apps/todo-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/todo-e2e/cypress.json",
+            "tsConfig": "apps/todo-e2e/tsconfig.e2e.json",
+            "devServerTarget": "todo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "todo:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/todo-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/todo-e2e/**"]
+          }
+        }
+      }
+    },
+    "todo-api": {
+      "root": "apps/todo-api",
+      "sourceRoot": "apps/todo-api/src",
+      "projectType": "application",
+      "prefix": "todo-api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/todo-api",
+            "main": "apps/todo-api/src/main.ts",
+            "tsConfig": "apps/todo-api/tsconfig.app.json",
+            "assets": ["apps/todo-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/todo-api/src/environments/environment.ts",
+                  "with": "apps/todo-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "todo-api:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/todo-api/tsconfig.app.json",
+              "apps/todo-api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/todo-api/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/todo-api/jest.config.js",
+            "tsConfig": "apps/todo-api/tsconfig.spec.json"
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -214,5 +396,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "idp"
+  "defaultProject": "idp-client"
 }

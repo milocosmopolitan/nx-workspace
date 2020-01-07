@@ -14,13 +14,22 @@
     "idp-e2e": {
       "tags": []
     },
-    "idp": {
+    "idp-client": {
       "tags": []
     },
-    "api": {
+    "idp-api": {
       "tags": []
     },
     "api-interfaces": {
+      "tags": []
+    },
+    "todo-e2e": {
+      "tags": []
+    },
+    "todo": {
+      "tags": []
+    },
+    "todo-api": {
       "tags": []
     }
   }
