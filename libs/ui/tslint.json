@@ -1,0 +1,8 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "no-host-metadata-property": false,
+    "directive-selector": [false, "attribute", "workspace", "camelCase"],
+    "component-selector": [false, "element", "workspace", "kebab-case"]
+  }
+}

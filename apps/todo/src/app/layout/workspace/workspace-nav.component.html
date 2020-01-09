@@ -1,0 +1,125 @@
+<div class="h-100 d-flex flex-column align-items-center justify-content-between">
+  <div class="d-flex flex-column align-items-center workspace-branding">
+    <button
+      mat-icon-button
+      class="text-white"
+    >
+      <mat-icon>home</mat-icon>
+    </button>
+  </div>
+
+  <div class="h-100 d-flex flex-column align-items-center justify-content-between">
+    <div class="d-flex flex-column align-items-center">
+
+      <button
+        mat-icon-button
+        matTooltip="Switch to..."
+        matTooltipPosition="after"
+        aria-label="Switch to other application of the workspace"
+        class="text-white"
+        (click)="onButtonClick('applications')"
+      >
+        <mat-icon>apps</mat-icon>
+      </button>
+
+      <!-- TODO: dynamically update xPosition according to parent side container position -->
+      <!-- <mat-menu #applicationsMenu="matMenu"
+        xPosition="after"
+        overlapTrigger="true"
+        class="workspace-nav-menu-panel">
+        <button mat-menu-item>Blog</button>
+        <button mat-menu-item>Sales & Marketing</button>
+        <button mat-menu-item>Human Resources</button>
+        <button mat-menu-item>Order Processing</button>
+        <button mat-menu-item>Accounting</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>Administration</button>
+      </mat-menu> -->
+
+      <button
+        mat-icon-button
+        matTooltip="Search"
+        matTooltipPosition="after"
+        aria-label="Search in the workspace"
+        class="text-white"
+        (click)="onButtonClick('search')"
+      >
+        <mat-icon>search</mat-icon>
+      </button>
+
+      <!-- <button
+        mat-icon-button
+        matTooltip="Search"
+        aria-label="Search in the workspace"
+        class="text-white"
+      >
+        <mat-icon>star</mat-icon>
+      </button> -->
+
+      <button
+        mat-icon-button
+        matTooltip="Create"
+        matTooltipPosition="after"
+        aria-label="Create"
+        class="text-white"
+        (click)="onButtonClick('add')"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <div class="d-flex flex-column justify-content-center">
+
+      <button
+        mat-icon-button
+        matTooltip="Notifications"
+        matTooltipPosition="after"
+        aria-label="View notifications"
+        (click)="onButtonClick('notifications')"
+      >
+        <mat-icon>notifications</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        matTooltip="Help"
+        matTooltipPosition="after"
+        aria-label="View help"
+        [matMenuTriggerFor]="helpMenu"
+      >
+        <mat-icon>help</mat-icon>
+      </button>
+
+      <!-- TODO: dynamically update xPosition according to parent side container position -->
+      <mat-menu #helpMenu="matMenu"
+        xPosition="after"
+        overlapTrigger="true"
+        class="workspace-nav-menu-panel">
+        <label class="mat-menu-label">Help</label>
+        <button mat-menu-item>Documentation</button>
+        <button mat-menu-item>Supports</button>
+
+        <mat-divider></mat-divider>
+
+        <label class="mat-menu-label">Legal</label>
+        <button mat-menu-item>Terms of service</button>
+        <button mat-menu-item>Privacy policy</button>
+        
+      </mat-menu>
+
+      <button
+        mat-icon-button
+        matTooltip="Settings"
+        matTooltipPosition="after"
+        aria-label="View setting"
+        (click)="onButtonClick('settings')"
+      >
+        <mat-icon>settings</mat-icon>
+      </button>
+
+    </div>
+  </div>
+
+  
+</div>
+

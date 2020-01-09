@@ -1,0 +1,126 @@
+.layout-container {
+  height: 100vh;
+  position: relative;
+
+  .layout-header, .layout-footer, .layout-content {
+    padding: 16px 24px;
+    display: block;
+  }
+
+  .mat-sidenav-container, 
+  .mat-sidenav-content,
+  .layout-content,
+  .layout-container {
+    height: 100%;
+  }
+
+  .page-sidenav-left,
+  .page-sidenav-right {
+    border: 0;
+  }
+
+  .page-sidenav-left {
+    box-shadow: 2px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .page-sidenav-right {
+    box-shadow: -2px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .layout-header,
+  .layout-footer,
+  .side-container {
+    display: block;
+    position: relative;
+  }
+
+  .side-container {
+    .side-minimizer-button {
+      
+      .mat-button {
+        width: 36px;
+        height: 36px;
+        line-height: 0;
+        background: #f3f3f3;
+        border-radius: 50%;
+        min-width: unset;
+        padding: 0;
+        border: 2px solid rgba(120, 120, 120, 0.1);
+      }
+    }
+
+    &.side-container-minimized {
+      width: 20px;
+    }
+  }
+}
+
+
+/** -------- Side container Animation STARTS -------- */
+
+$side-toggle-transition-duration: 400ms;
+$side-toggle-transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+.side-container {
+  transition: width $side-toggle-transition-duration $side-toggle-transition-timing-function;  
+}
+
+.mat-drawer-content, .mat-sidenav-content {
+  &.mat-drawer-end {
+    transition: margin-right $side-toggle-transition-duration $side-toggle-transition-timing-function;
+  }
+
+  &:not(.mat-drawer-end) {
+    transition: margin-left $side-toggle-transition-duration $side-toggle-transition-timing-function;
+  }
+}
+
+.side-minimizer-button {
+  .mat-button-base {
+    transition: left $side-toggle-transition-duration $side-toggle-transition-timing-function;    
+  }
+}
+
+/** -------- Side container Animation ENDS -------- */
+
+
+/** -------- Side minimizer button style STARTS -------- */
+
+.side-minimizer-button {
+  .mat-button-base {
+    width: 30px;
+    height: 30px;
+    line-height: 0;
+    padding: 0;
+
+    .mat-icon {
+      font-size: 20px;
+      font-weight: 800;
+      width: 20px;
+      height: 20px;
+      line-height: 10px;
+    }
+  }
+}
+
+/** -------- Side minimizer button style ENDS -------- */
+
+/** Theme */
+.side-container {
+  background-color: #f9f9f9;
+
+ 
+}
+
+//  /** nav list item */
+//  .mat-nav-list {
+
+//   .mat-subheader {
+//     font-size: 12px;
+//     font-weight: 400;
+//     text-transform: uppercase;
+//   }
+//   .mat-list-text {
+//     color: #5d5b6f;
+//     text-transform: capitalize;
+//   }
+// }

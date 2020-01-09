@@ -1,0 +1,39 @@
+$side-nav-padding: 20px;
+$side-nav-width: 60px;
+
+$side-nav-button-color: #cecece;
+$side-nav-button-on-hover-color: #ededed;
+
+workspace-nav {
+  width: $side-nav-width;
+  height: 100vh;
+
+  overflow-y: hidden;
+
+  display: block;
+
+  background-color: #222b45;
+
+  padding-top: $side-nav-padding;
+  padding-bottom: $side-nav-padding;
+
+  .workspace-branding {
+    margin-bottom: 0.5rem;
+  }
+
+  .mat-icon-button {
+    color: $side-nav-button-color;
+
+    &:hover {
+      color: $side-nav-button-on-hover-color;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.workspace-nav-menu-panel {
+  // margin-left: 45px;
+}

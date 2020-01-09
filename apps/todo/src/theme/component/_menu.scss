@@ -1,0 +1,40 @@
+/** Since this file requires variables from angular theme it should be imported after */
+.mat-menu-content {
+  /** Allow user to add label to group menu item */
+  .mat-menu-label {
+    outline: 0;
+    border: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    line-height: 48px;
+    height: 48px;
+    padding: 0 16px;
+    text-align: left;
+    text-decoration: none;
+    max-width: 100%;
+    position: relative;
+
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    background: transparent;
+    color: $dark-secondary-text;
+    text-transform: uppercase;
+  }
+}
+
+/** nav list item */
+.mat-nav-list {
+
+  .mat-subheader {
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .mat-list-text {
+    color: #5d5b6f;
+    text-transform: capitalize;
+  }
+}

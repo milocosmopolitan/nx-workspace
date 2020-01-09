@@ -1,0 +1,48 @@
+<mat-sidenav-container #drawerContainerElem class="mat-sidenav-transition">
+  <mat-sidenav #leftSidenav="matSidenav" *ngIf="leftSideContainer"
+              [opened]="leftSideContainer.opened" mode="side"
+              [fixedInViewport]="leftSideContainer.fixedInViewport"
+              [fixedTopGap]="leftSideContainer.fixedTopGap"
+              [fixedBottomGap]="leftSideContainer.fixedBottomGap"
+              class="page-sidenav-left">
+    <ng-container *ngTemplateOutlet="leftSideContainerTemplate"></ng-container>
+  </mat-sidenav>
+
+  <mat-sidenav #rightSidenav="matSidenav" *ngIf="rightSideContainer"
+              [opened]="rightSideContainer.opened" mode="side" position="end"
+              [fixedInViewport]="rightSideContainer.fixedInViewport"
+              [fixedTopGap]="rightSideContainer.fixedTopGap"
+              [fixedBottomGap]="rightSideContainer.fixedBottomGap"
+              class="page-sidenav-right">
+    <ng-container *ngTemplateOutlet="rightSideContainerTemplate"></ng-container>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- <ng-container *ngIf="leftSideContainer && leftMatSidenav">
+      <div sideToggler [sideTogglerFor]="leftMatSidenav">
+        <div class="side-toggler-arrow"></div>
+      </div>
+    </ng-container>
+    
+    <ng-container *ngIf="rightSideContainer && rightMatSidenav">
+      <div sideToggler [sideTogglerFor]="rightMatSidenav">
+        <div class="side-toggler-arrow"></div>
+      </div>
+    </ng-container> -->
+
+    <div #contentWrapperElem class="h-100">
+      <ng-content select="layout[header]"></ng-content>
+      <ng-content select="layout[content]"></ng-content>
+      <ng-content select="layout[footer]"></ng-content>
+    </div>    
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<ng-template #leftSideContainerTemplate>
+  <ng-content select="layout[side='left']"></ng-content>
+</ng-template>
+
+<ng-template #rightSideContainerTemplate>
+  <ng-content select="layout[side='right']"></ng-content>
+</ng-template>

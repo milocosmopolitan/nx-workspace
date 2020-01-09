@@ -1,0 +1,41 @@
+$side-nav-padding: 20px;
+$side-nav-width: 200px;
+
+$side-nav-button-color: #cecece;
+$side-nav-button-on-hover-color: #ededed;
+
+todo-side-nav {
+  // width: $side-nav-width;
+  height: 100vh;
+
+  overflow-y: hidden;
+
+  display: block;
+
+  // background-color: #222b45;
+
+  padding-top: $side-nav-padding;
+  padding-bottom: $side-nav-padding;  
+
+  
+
+  
+
+  .mat-icon-button {
+    // color: rgb(100, 108, 154);
+    color: $side-nav-button-color;
+
+    &:hover {
+      color: $side-nav-button-on-hover-color;
+    }
+  }
+
+  .mat-list-text {
+    font-size: 14px;
+  }
+
+  .mat-list-base .mat-list-item,
+  .mat-list-base .mat-list-option {
+    height: 36px;
+  }
+}
